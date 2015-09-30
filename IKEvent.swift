@@ -23,9 +23,12 @@ private class IKEventListener<Parameters> {
 
 public class IKEvent<Parameters> {
     //MARK: - Internals
-    typealias EventClosure = (Parameters) -> Void
+    public typealias EventClosure = (Parameters) -> Void
     private var listeners = [IKEventListener<Parameters>]()
     private var forwarding = [IKEvent<Parameters>]()
+    
+    //MARK: - Public
+    public init() { }
     
     //MARK: - Public - Adding
     public func add<T: AnyObject>(listener: T, _ closure: T -> EventClosure) {
